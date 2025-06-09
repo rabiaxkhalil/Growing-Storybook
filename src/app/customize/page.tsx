@@ -107,25 +107,38 @@ function fillStoryPlaceholders(story: string, childName: string, parentName: str
 export default function Customize() {
   const [storyText, setStoryText] = useState("");
   const [storyTitle, setStoryTitle] = useState("");
+  const [selectedStories, setSelectedStories] = useState<string[]>([]);
+  const [currentStoryIndex, setCurrentStoryIndex] = useState(0);
   const router = useRouter();
 
   useEffect(() => {
     const child = sessionStorage.getItem("childName") || "";
     const parent = sessionStorage.getItem("parentName") || "";
-    const storyId = Number(sessionStorage.getItem("selectedStoryId"));
-    const story = storyTemplates.find(s => s.id === storyId);
-    if (story && child && parent) {
-      setStoryTitle(story.title);
-      setStoryText(fillStoryPlaceholders(story.text, child, parent));
+    const stories = JSON.parse(sessionStorage.getItem("selectedStories") || "[]");
+    setSelectedStories(stories);
+    if (stories.length > 0) {
+      const story = storyTemplates.find(s => s.title === stories[currentStoryIndex]);
+      if (story && child && parent) {
+        setStoryTitle(story.title);
+        setStoryText(fillStoryPlaceholders(story.text, child, parent));
+      }
     }
-  }, []);
+  }, [currentStoryIndex]);
 
   function handleBack() {
     router.push("/stories");
   }
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
+  function handleNextStory() {
+    if (currentStoryIndex < selectedStories.length - 1) {
+      setCurrentStoryIndex(currentStoryIndex + 1);
+    } else {
+      handleSubmit();
+    }
+  }
+
+  function handleSubmit(e?: React.FormEvent<HTMLFormElement>) {
+    if (e) e.preventDefault();
     sessionStorage.setItem("finalStoryTitle", storyTitle);
     sessionStorage.setItem("finalStoryText", storyText);
     router.push("/storybook");
@@ -143,7 +156,9 @@ export default function Customize() {
         />
         <div className="flex gap-4 w-full justify-between">
           <button type="button" onClick={handleBack} className="px-6 py-2 rounded-full bg-mint-100 hover:bg-peach-100 text-peach-400 font-semibold shadow transition">Back</button>
-          <button type="submit" className="px-8 py-3 rounded-full bg-peach-300 hover:bg-peach-400 text-white font-semibold text-lg shadow transition">Generate Storybook</button>
+          <button type="button" onClick={handleNextStory} className="px-8 py-3 rounded-full bg-peach-300 hover:bg-peach-400 text-white font-semibold text-lg shadow transition">
+            {currentStoryIndex < selectedStories.length - 1 ? "Next Story" : "Generate Storybook"}
+          </button>
         </div>
       </form>
     </div>

@@ -92,7 +92,7 @@ export default function Stories() {
           <h2 className="text-2xl font-bold">Select up to 10 Stories for {childName}</h2>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
-          {allStories.map((story) => (
+          {allStories.map((story, index) => (
             <label key={story} className={`flex items-center gap-3 p-3 rounded-xl border transition cursor-pointer ${selectedStories.includes(story) ? 'bg-peach-100 border-peach-300' : 'bg-white border-gray-200'}`}> 
               <input
                 type="checkbox"
@@ -101,7 +101,7 @@ export default function Stories() {
                 disabled={!selectedStories.includes(story) && selectedStories.length >= 10}
                 className="accent-peach-400 w-5 h-5"
               />
-              <span className="font-semibold">{story}</span>
+              <span className="font-semibold">{storyTemplates[index].title}</span>
             </label>
           ))}
         </div>
