@@ -115,14 +115,24 @@ export default function Customize() {
     const child = sessionStorage.getItem("childName") || "";
     const parent = sessionStorage.getItem("parentName") || "";
     const stories = JSON.parse(sessionStorage.getItem("selectedStories") || "[]");
+    console.log("Selected Stories:", stories);
+    console.log("Current Story Index:", currentStoryIndex);
     setSelectedStories(stories);
+    
     if (stories.length > 0) {
+      console.log("Looking for story:", stories[currentStoryIndex]);
+      console.log("Available stories:", storyTemplates.map(s => s.title));
+      
       const story = storyTemplates.find(s => s.title === stories[currentStoryIndex]);
+      console.log("Found story:", story);
+      
       if (story && child && parent) {
         setStoryTitle(story.title);
         const filledText = fillStoryPlaceholders(story.text, child, parent);
         setStoryText(filledText);
         console.log("Story Text:", filledText);
+      } else {
+        console.log("Missing data:", { story, child, parent });
       }
     }
   }, [currentStoryIndex]);
