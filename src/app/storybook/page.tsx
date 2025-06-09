@@ -164,7 +164,7 @@ export default function Storybook() {
           
           <button
             onClick={handleRecordVoice}
-            className="px-6 py-2 rounded-full bg-mint-300 hover:bg-mint-400 text-white font-semibold shadow transition flex items-center gap-2"
+            className="px-6 py-2 rounded-full bg-white hover:bg-gray-100 text-gray-800 font-semibold shadow transition flex items-center gap-2 border border-gray-200"
           >
             {isRecording ? "⏹️ Stop Recording" : "🎤 Record Voice"}
           </button>
