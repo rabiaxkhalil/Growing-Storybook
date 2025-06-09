@@ -3,22 +3,23 @@ import { useEffect, useState, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { jsPDF } from "jspdf";
 import Image from "next/image";
+import React from "react";
 
 // Pre-made illustrations for each story theme
-const illustrationMap: { [key: string]: string } = {
+const storyIllustrations = {
   "The Rocket Repair Team": "/illustrations/rocket.svg",
-  "The Garden of Kindness": "/illustrations/garden.svg",
-  "The Rainbow Bridge": "/illustrations/rainbow.svg",
-  "The Treasure Map": "/illustrations/treasure.svg",
-  "The Space Explorer": "/illustrations/space.svg",
-  "The Ocean Explorer": "/illustrations/ocean.svg",
-  "The Forest Friends": "/illustrations/forest.svg",
-  "The Castle of Courage": "/illustrations/castle.svg",
-  "The Mountain Climber": "/illustrations/mountain.svg",
   "The Dinosaur Discovery": "/illustrations/dinosaur.svg",
-  "The Robot Friend": "/illustrations/robot.svg",
-  "The Circus Adventure": "/illustrations/circus.svg"
+  "The Sky Painter": "/illustrations/sky.svg",
+  "The Kindness Parade": "/illustrations/kindness.svg",
+  "Captain of the Sea": "/illustrations/sea.svg",
+  "The Quiet Rescue": "/illustrations/rescue.svg",
+  "The Starlight Wish": "/illustrations/stars.svg",
+  "The Loud Idea": "/illustrations/idea.svg",
+  "The Time Machine": "/illustrations/time.svg",
+  "The Great Messy Masterpiece": "/illustrations/art.svg",
 };
+
+const allStories = Object.keys(storyIllustrations);
 
 export default function Storybook() {
   const [storyTitle, setStoryTitle] = useState("");
@@ -32,6 +33,8 @@ export default function Storybook() {
   const router = useRouter();
   const mediaRecorderRef = useRef<MediaRecorder | null>(null);
   const audioChunksRef = useRef<Blob[]>([]);
+  const [selectedStories, setSelectedStories] = useState<string[]>([]);
+  const [selectionConfirmed, setSelectionConfirmed] = useState(false);
 
   useEffect(() => {
     const title = sessionStorage.getItem("finalStoryTitle");
@@ -154,6 +157,54 @@ export default function Storybook() {
     URL.revokeObjectURL(url);
   }
 
+  // Story selection handler
+  function handleStorySelect(story: string) {
+    if (selectedStories.includes(story)) {
+      setSelectedStories(selectedStories.filter((s) => s !== story));
+    } else {
+      if (selectedStories.length < 10) {
+        setSelectedStories([...selectedStories, story]);
+      }
+    }
+  }
+
+  // Confirm selection
+  function handleConfirmSelection() {
+    setSelectionConfirmed(true);
+  }
+
+  if (!selectionConfirmed) {
+    return (
+      <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-peach-100 via-mint-100 to-sky-100 font-nunito text-gray-800 p-6">
+        <div className="max-w-2xl w-full flex flex-col items-center gap-6 bg-white/80 rounded-3xl shadow-xl p-8">
+          <h1 className="text-3xl font-bold mb-4">Select up to 10 Stories</h1>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
+            {allStories.map((story) => (
+              <label key={story} className={`flex items-center gap-3 p-3 rounded-xl border transition cursor-pointer ${selectedStories.includes(story) ? 'bg-peach-100 border-peach-300' : 'bg-white border-gray-200'}`}> 
+                <input
+                  type="checkbox"
+                  checked={selectedStories.includes(story)}
+                  onChange={() => handleStorySelect(story)}
+                  disabled={!selectedStories.includes(story) && selectedStories.length >= 10}
+                  className="accent-peach-400 w-5 h-5"
+                />
+                <span className="font-semibold">{story}</span>
+              </label>
+            ))}
+          </div>
+          <button
+            onClick={handleConfirmSelection}
+            disabled={selectedStories.length === 0}
+            className="mt-6 px-6 py-2 rounded-full bg-peach-300 hover:bg-peach-400 text-white font-semibold shadow transition disabled:opacity-50"
+          >
+            Start Storybook
+          </button>
+          <div className="text-sm text-gray-500 mt-2">{selectedStories.length}/10 selected</div>
+        </div>
+      </div>
+    );
+  }
+
   if (isLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-peach-100 via-mint-100 to-sky-100 font-nunito">
@@ -179,26 +230,22 @@ export default function Storybook() {
           <h1 className="text-3xl font-bold text-center">{storyTitle}</h1>
         </div>
 
-        <div className="flex-1 overflow-y-auto p-6">
-          <div className="max-w-3xl mx-auto">
-            <div className="mb-8">
-              <h1 className="text-3xl font-bold text-gray-900 mb-4">{storyTitle}</h1>
-              <div className="relative w-full h-64 mb-6 rounded-lg overflow-hidden bg-gray-100">
-                <Image
-                  src={illustrationMap[storyTitle] || "/illustrations/default.svg"}
-                  alt={`Illustration for ${storyTitle}`}
-                  fill
-                  className="object-contain"
-                />
-              </div>
-              <div className="prose prose-lg max-w-none">
-                {storyText.split("\n\n").map((paragraph, index) => (
-                  <p key={index} className="mb-4 text-gray-700">
-                    {paragraph}
-                  </p>
-                ))}
-              </div>
-            </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
+          <div className="relative aspect-square rounded-2xl overflow-hidden shadow-lg">
+            <Image
+              src={storyIllustrations[storyTitle as keyof typeof storyIllustrations] || "/illustrations/default.svg"}
+              alt="Story Illustration"
+              fill
+              className="object-cover"
+            />
+          </div>
+          
+          <div className="prose prose-lg max-w-none">
+            {storyText.split("\n").map((paragraph, index) => (
+              <p key={index} className="mb-4 text-lg">
+                {paragraph}
+              </p>
+            ))}
           </div>
         </div>
         
