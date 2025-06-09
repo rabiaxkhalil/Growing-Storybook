@@ -38,15 +38,17 @@ export default function Storybook() {
 
   useEffect(() => {
     if (!selectionConfirmed) return; // Only run after selection is confirmed
-    const title = sessionStorage.getItem("finalStoryTitle");
-    const text = sessionStorage.getItem("finalStoryText");
+    
+    const customizedStories = JSON.parse(sessionStorage.getItem("customizedStories") || "[]");
     const avatar = sessionStorage.getItem("childAvatar");
-    if (!title || !text) {
+    
+    if (!customizedStories || customizedStories.length === 0) {
       router.push("/onboarding");
       return;
     }
-    setStoryTitle(title);
-    setStoryText(text);
+    
+    setStoryTitle(customizedStories[0].title);
+    setStoryText(customizedStories[0].text);
     setChildAvatar(avatar);
     setIsLoading(false);
   }, [router, selectionConfirmed]);

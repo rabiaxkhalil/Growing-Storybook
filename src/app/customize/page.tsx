@@ -152,8 +152,22 @@ export default function Customize() {
 
   function handleSubmit(e?: React.FormEvent<HTMLFormElement>) {
     if (e) e.preventDefault();
-    sessionStorage.setItem("finalStoryTitle", storyTitle);
-    sessionStorage.setItem("finalStoryText", storyText);
+    
+    // Store all customized stories
+    const customizedStories = selectedStories.map((storyId, index) => {
+      const story = storyTemplates.find(s => s.id === Number(storyId));
+      if (story) {
+        const child = sessionStorage.getItem("childName") || "";
+        const parent = sessionStorage.getItem("parentName") || "";
+        return {
+          title: story.title,
+          text: fillStoryPlaceholders(story.text, child, parent)
+        };
+      }
+      return null;
+    }).filter(Boolean);
+
+    sessionStorage.setItem("customizedStories", JSON.stringify(customizedStories));
     router.push("/storybook");
   }
 
