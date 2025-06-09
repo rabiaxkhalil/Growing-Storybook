@@ -1,21 +1,22 @@
 import type { Metadata } from "next";
+import { Nunito } from "next/font/google";
 import "./globals.css";
 
+const nunito = Nunito({ subsets: ["latin"] });
+
 export const metadata: Metadata = {
-  title: "OurHealth: Growing Up Storybook",
-  description: "Create personalized storybooks for your child",
+  title: "OurHealth: Your Child Is Growing Up",
+  description: "Create personalized digital storybooks for your child",
 };
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
     <html lang="en">
-      <body className="font-nunito bg-peach-100 min-h-screen">
-        {children}
-      </body>
+      <body className={nunito.className}>{children}</body>
     </html>
   );
 }
