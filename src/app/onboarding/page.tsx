@@ -3,7 +3,6 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 
 export default function Onboarding() {
-  const [step, setStep] = useState(1);
   const [childName, setChildName] = useState("");
   const [parentName, setParentName] = useState("");
   const router = useRouter();
