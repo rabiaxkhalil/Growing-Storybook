@@ -5,17 +5,19 @@ import { jsPDF } from "jspdf";
 import Image from "next/image";
 
 // Pre-made illustrations for each story theme
-const storyIllustrations = {
+const illustrationMap: { [key: string]: string } = {
   "The Rocket Repair Team": "/illustrations/rocket.svg",
+  "The Garden of Kindness": "/illustrations/garden.svg",
+  "The Rainbow Bridge": "/illustrations/rainbow.svg",
+  "The Treasure Map": "/illustrations/treasure.svg",
+  "The Space Explorer": "/illustrations/space.svg",
+  "The Ocean Explorer": "/illustrations/ocean.svg",
+  "The Forest Friends": "/illustrations/forest.svg",
+  "The Castle of Courage": "/illustrations/castle.svg",
+  "The Mountain Climber": "/illustrations/mountain.svg",
   "The Dinosaur Discovery": "/illustrations/dinosaur.svg",
-  "The Sky Painter": "/illustrations/sky.svg",
-  "The Kindness Parade": "/illustrations/kindness.svg",
-  "Captain of the Sea": "/illustrations/sea.svg",
-  "The Quiet Rescue": "/illustrations/rescue.svg",
-  "The Starlight Wish": "/illustrations/stars.svg",
-  "The Loud Idea": "/illustrations/idea.svg",
-  "The Time Machine": "/illustrations/time.svg",
-  "The Great Messy Masterpiece": "/illustrations/art.svg",
+  "The Robot Friend": "/illustrations/robot.svg",
+  "The Circus Adventure": "/illustrations/circus.svg"
 };
 
 export default function Storybook() {
@@ -177,22 +179,26 @@ export default function Storybook() {
           <h1 className="text-3xl font-bold text-center">{storyTitle}</h1>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
-          <div className="relative aspect-square rounded-2xl overflow-hidden shadow-lg">
-            <Image
-              src={storyIllustrations[storyTitle as keyof typeof storyIllustrations] || "/illustrations/default.svg"}
-              alt="Story Illustration"
-              fill
-              className="object-cover"
-            />
-          </div>
-          
-          <div className="prose prose-lg max-w-none">
-            {storyText.split("\n").map((paragraph, index) => (
-              <p key={index} className="mb-4 text-lg">
-                {paragraph}
-              </p>
-            ))}
+        <div className="flex-1 overflow-y-auto p-6">
+          <div className="max-w-3xl mx-auto">
+            <div className="mb-8">
+              <h1 className="text-3xl font-bold text-gray-900 mb-4">{storyTitle}</h1>
+              <div className="relative w-full h-64 mb-6 rounded-lg overflow-hidden bg-gray-100">
+                <Image
+                  src={illustrationMap[storyTitle] || "/illustrations/default.svg"}
+                  alt={`Illustration for ${storyTitle}`}
+                  fill
+                  className="object-contain"
+                />
+              </div>
+              <div className="prose prose-lg max-w-none">
+                {storyText.split("\n\n").map((paragraph, index) => (
+                  <p key={index} className="mb-4 text-gray-700">
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
         

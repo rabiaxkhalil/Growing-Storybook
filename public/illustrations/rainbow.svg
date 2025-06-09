@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="400" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="400" height="400" fill="#E0F2FE"/>
+  
+  <!-- Clouds -->
+  <path d="M50 100C50 100 70 80 90 100C110 120 130 100 150 100C170 100 190 120 210 100C230 80 250 100 250 100" stroke="#93C5FD" stroke-width="8" fill="none"/>
+  <path d="M150 150C150 150 170 130 190 150C210 170 230 150 250 150C270 150 290 170 310 150C330 130 350 150 350 150" stroke="#93C5FD" stroke-width="8" fill="none"/>
+  
+  <!-- Rainbow -->
+  <path d="M50 200C50 200 100 150 200 150C300 150 350 200 350 200" stroke="#F87171" stroke-width="20" stroke-linecap="round"/>
+  <path d="M50 220C50 220 100 170 200 170C300 170 350 220 350 220" stroke="#FCD34D" stroke-width="20" stroke-linecap="round"/>
+  <path d="M50 240C50 240 100 190 200 190C300 190 350 240 350 240" stroke="#34D399" stroke-width="20" stroke-linecap="round"/>
+  <path d="M50 260C50 260 100 210 200 210C300 210 350 260 350 260" stroke="#60A5FA" stroke-width="20" stroke-linecap="round"/>
+  <path d="M50 280C50 280 100 230 200 230C300 230 350 280 350 280" stroke="#A78BFA" stroke-width="20" stroke-linecap="round"/>
+  
+  <!-- Bridge -->
+  <path d="M100 300L300 300" stroke="#A3A3A3" stroke-width="8"/>
+  <path d="M120 320L280 320" stroke="#A3A3A3" stroke-width="8"/>
+  <path d="M140 340L260 340" stroke="#A3A3A3" stroke-width="8"/>
+  
+  <!-- Bridge Supports -->
+  <path d="M150 300L150 340" stroke="#A3A3A3" stroke-width="4"/>
+  <path d="M200 300L200 340" stroke="#A3A3A3" stroke-width="4"/>
+  <path d="M250 300L250 340" stroke="#A3A3A3" stroke-width="4"/>
+  
+  <!-- Water -->
+  <path d="M50 360C50 360 100 350 200 350C300 350 350 360 350 360" stroke="#60A5FA" stroke-width="20" stroke-linecap="round"/>
+  <path d="M50 380C50 380 100 370 200 370C300 370 350 380 350 380" stroke="#60A5FA" stroke-width="20" stroke-linecap="round"/>
+  
+  <!-- Sparkles -->
+  <circle cx="100" cy="150" r="2" fill="#FCD34D"/>
+  <circle cx="150" cy="180" r="2" fill="#FCD34D"/>
+  <circle cx="200" cy="160" r="2" fill="#FCD34D"/>
+  <circle cx="250" cy="190" r="2" fill="#FCD34D"/>
+  <circle cx="300" cy="170" r="2" fill="#FCD34D"/>
+</svg> 

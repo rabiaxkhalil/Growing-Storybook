@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="400" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="400" height="400" fill="#E0F2FE"/>
+  
+  <!-- Stars -->
+  <circle cx="50" cy="50" r="2" fill="#FCD34D"/>
+  <circle cx="100" cy="80" r="1.5" fill="#FCD34D"/>
+  <circle cx="150" cy="40" r="2" fill="#FCD34D"/>
+  <circle cx="200" cy="70" r="1.5" fill="#FCD34D"/>
+  <circle cx="250" cy="30" r="2" fill="#FCD34D"/>
+  <circle cx="300" cy="60" r="1.5" fill="#FCD34D"/>
+  <circle cx="350" cy="20" r="2" fill="#FCD34D"/>
+  
+  <!-- Rocket Body -->
+  <path d="M200 100L180 200L220 200L200 100Z" fill="#F87171"/>
+  <path d="M180 200L220 200L240 300L160 300L180 200Z" fill="#EF4444"/>
+  
+  <!-- Rocket Window -->
+  <circle cx="200" cy="150" r="15" fill="#93C5FD"/>
+  <circle cx="200" cy="150" r="10" fill="#E0F2FE"/>
+  
+  <!-- Rocket Fins -->
+  <path d="M180 200L160 250L180 300L180 200Z" fill="#F87171"/>
+  <path d="M220 200L240 250L220 300L220 200Z" fill="#F87171"/>
+  
+  <!-- Rocket Flame -->
+  <path d="M160 300L200 350L240 300L160 300Z" fill="#FCD34D"/>
+  <path d="M170 300L200 340L230 300L170 300Z" fill="#F59E0B"/>
+  <path d="M180 300L200 330L220 300L180 300Z" fill="#D97706"/>
+  
+  <!-- Tools -->
+  <rect x="120" y="250" width="20" height="60" rx="2" fill="#94A3B8"/>
+  <rect x="260" y="250" width="20" height="60" rx="2" fill="#94A3B8"/>
+  <circle cx="130" cy="250" r="10" fill="#FCD34D"/>
+  <circle cx="270" cy="250" r="10" fill="#FCD34D"/>
+</svg> 

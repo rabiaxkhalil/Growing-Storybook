@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="400" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="400" height="400" fill="#1E293B"/>
+  
+  <!-- Stars -->
+  <circle cx="50" cy="50" r="1" fill="#FCD34D"/>
+  <circle cx="100" cy="80" r="1.5" fill="#FCD34D"/>
+  <circle cx="150" cy="40" r="1" fill="#FCD34D"/>
+  <circle cx="200" cy="70" r="1.5" fill="#FCD34D"/>
+  <circle cx="250" cy="30" r="1" fill="#FCD34D"/>
+  <circle cx="300" cy="60" r="1.5" fill="#FCD34D"/>
+  <circle cx="350" cy="20" r="1" fill="#FCD34D"/>
+  <circle cx="20" cy="100" r="1" fill="#FCD34D"/>
+  <circle cx="70" cy="130" r="1.5" fill="#FCD34D"/>
+  <circle cx="120" cy="90" r="1" fill="#FCD34D"/>
+  <circle cx="170" cy="120" r="1.5" fill="#FCD34D"/>
+  <circle cx="220" cy="80" r="1" fill="#FCD34D"/>
+  <circle cx="270" cy="110" r="1.5" fill="#FCD34D"/>
+  <circle cx="320" cy="70" r="1" fill="#FCD34D"/>
+  <circle cx="370" cy="100" r="1.5" fill="#FCD34D"/>
+  
+  <!-- Planets -->
+  <!-- Earth -->
+  <circle cx="100" cy="200" r="40" fill="#60A5FA"/>
+  <path d="M80 180C80 180 90 190 100 190C110 190 120 180 120 180" stroke="#34D399" stroke-width="4"/>
+  <path d="M70 210C70 210 85 220 100 220C115 220 130 210 130 210" stroke="#34D399" stroke-width="4"/>
+  
+  <!-- Moon -->
+  <circle cx="300" cy="150" r="20" fill="#E2E8F0"/>
+  <circle cx="290" cy="140" r="5" fill="#94A3B8"/>
+  <circle cx="310" cy="160" r="3" fill="#94A3B8"/>
+  <circle cx="295" cy="155" r="4" fill="#94A3B8"/>
+  
+  <!-- Rocket -->
+  <path d="M200 100L180 200L220 200L200 100Z" fill="#F87171"/>
+  <path d="M180 200L220 200L240 300L160 300L180 200Z" fill="#EF4444"/>
+  <circle cx="200" cy="150" r="15" fill="#93C5FD"/>
+  <circle cx="200" cy="150" r="10" fill="#E0F2FE"/>
+  <path d="M180 200L160 250L180 300L180 200Z" fill="#F87171"/>
+  <path d="M220 200L240 250L220 300L220 200Z" fill="#F87171"/>
+  <path d="M160 300L200 350L240 300L160 300Z" fill="#FCD34D"/>
+  <path d="M170 300L200 340L230 300L170 300Z" fill="#F59E0B"/>
+  <path d="M180 300L200 330L220 300L180 300Z" fill="#D97706"/>
+  
+  <!-- Space Station -->
+  <rect x="250" y="250" width="60" height="40" fill="#94A3B8"/>
+  <rect x="240" y="270" width="80" height="10" fill="#94A3B8"/>
+  <circle cx="280" cy="260" r="10" fill="#E0F2FE"/>
+  <path d="M260 250L260 290" stroke="#E0F2FE" stroke-width="2"/>
+  <path d="M300 250L300 290" stroke="#E0F2FE" stroke-width="2"/>
+  
+  <!-- Asteroids -->
+  <path d="M50 300C50 300 60 290 70 300C80 310 70 320 60 320C50 320 40 310 50 300Z" fill="#94A3B8"/>
+  <path d="M350 280C350 280 360 270 370 280C380 290 370 300 360 300C350 300 340 290 350 280Z" fill="#94A3B8"/>
+  <path d="M150 350C150 350 160 340 170 350C180 360 170 370 160 370C150 370 140 360 150 350Z" fill="#94A3B8"/>
+</svg> 

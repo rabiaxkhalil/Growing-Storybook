@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="400" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="400" height="400" fill="#FEF3C7"/>
+  
+  <!-- Sun -->
+  <circle cx="350" cy="50" r="40" fill="#FCD34D"/>
+  <circle cx="350" cy="50" r="35" fill="#FEF3C7"/>
+  
+  <!-- Clouds -->
+  <path d="M50 80C50 80 70 60 90 80C110 100 130 80 150 80C170 80 190 100 210 80C230 60 250 80 250 80" stroke="#93C5FD" stroke-width="8" fill="none"/>
+  <path d="M100 120C100 120 120 100 140 120C160 140 180 120 200 120C220 120 240 140 260 120C280 100 300 120 300 120" stroke="#93C5FD" stroke-width="8" fill="none"/>
+  
+  <!-- Ground -->
+  <path d="M0 300C0 300 100 280 200 300C300 320 400 300 400 300L400 400L0 400L0 300Z" fill="#22C55E"/>
+  
+  <!-- Dinosaur -->
+  <!-- Body -->
+  <path d="M200 200C200 200 250 180 300 200C350 220 370 250 350 280C330 310 300 320 280 310C260 300 250 280 240 270C230 260 220 250 210 240C200 230 190 220 180 210C170 200 160 190 150 180C140 170 130 160 120 150C110 140 100 130 90 120C80 110 70 100 60 90C50 80 40 70 30 60C20 50 10 40 0 30" stroke="#92400E" stroke-width="20" stroke-linecap="round"/>
+  
+  <!-- Head -->
+  <path d="M0 30C0 30 10 20 20 30C30 40 40 50 50 60C60 70 70 80 80 90C90 100 100 110 110 120C120 130 130 140 140 150C150 160 160 170 170 180C180 190 190 200 200 200" stroke="#92400E" stroke-width="20" stroke-linecap="round"/>
+  
+  <!-- Eye -->
+  <circle cx="20" cy="30" r="5" fill="#1E293B"/>
+  
+  <!-- Spikes -->
+  <path d="M100 120L90 100" stroke="#92400E" stroke-width="10" stroke-linecap="round"/>
+  <path d="M150 170L140 150" stroke="#92400E" stroke-width="10" stroke-linecap="round"/>
+  <path d="M200 220L190 200" stroke="#92400E" stroke-width="10" stroke-linecap="round"/>
+  <path d="M250 270L240 250" stroke="#92400E" stroke-width="10" stroke-linecap="round"/>
+  <path d="M300 320L290 300" stroke="#92400E" stroke-width="10" stroke-linecap="round"/>
+  
+  <!-- Legs -->
+  <path d="M250 280L260 320" stroke="#92400E" stroke-width="15" stroke-linecap="round"/>
+  <path d="M300 290L310 330" stroke="#92400E" stroke-width="15" stroke-linecap="round"/>
+  
+  <!-- Tail -->
+  <path d="M350 280C350 280 370 260 380 240C390 220 400 200 400 180" stroke="#92400E" stroke-width="20" stroke-linecap="round"/>
+  
+  <!-- Rocks -->
+  <path d="M50 350C50 350 40 340 50 330C60 320 70 330 70 340C70 350 60 360 50 350Z" fill="#94A3B8"/>
+  <path d="M350 330C350 330 340 320 350 310C360 300 370 310 370 320C370 330 360 340 350 330Z" fill="#94A3B8"/>
+  
+  <!-- Trees -->
+  <path d="M50 300L50 250" stroke="#92400E" stroke-width="5"/>
+  <path d="M30 250C30 250 50 230 70 250" stroke="#22C55E" stroke-width="10" stroke-linecap="round"/>
+  
+  <path d="M350 300L350 250" stroke="#92400E" stroke-width="5"/>
+  <path d="M330 250C330 250 350 230 370 250" stroke="#22C55E" stroke-width="10" stroke-linecap="round"/>
+  
+  <!-- Footprints -->
+  <path d="M100 320C100 320 90 310 100 300C110 290 120 300 120 310C120 320 110 330 100 320Z" fill="#92400E"/>
+  <path d="M150 330C150 330 140 320 150 310C160 300 170 310 170 320C170 330 160 340 150 330Z" fill="#92400E"/>
+  <path d="M200 320C200 320 190 310 200 300C210 290 220 300 220 310C220 320 210 330 200 320Z" fill="#92400E"/>
+</svg> 
