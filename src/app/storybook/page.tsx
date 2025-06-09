@@ -3,16 +3,12 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
 export default function Storybook() {
-  const [childName, setChildName] = useState("");
-  const [parentName, setParentName] = useState("");
   const [avatar, setAvatar] = useState("");
   const [title, setTitle] = useState("");
   const [story, setStory] = useState("");
   const router = useRouter();
 
   useEffect(() => {
-    setChildName(sessionStorage.getItem("childName") || "");
-    setParentName(sessionStorage.getItem("parentName") || "");
     setAvatar(sessionStorage.getItem("childAvatar") || "");
     setTitle(sessionStorage.getItem("finalStoryTitle") || "");
     setStory(sessionStorage.getItem("finalStoryText") || "");
@@ -29,7 +25,7 @@ export default function Storybook() {
         <div className="flex flex-col items-center gap-2">
           <span className="text-6xl mb-2">{avatar}</span>
           <h1 className="text-3xl font-bold text-center text-peach-400 mb-2">{title}</h1>
-          <h2 className="text-lg text-center text-gray-500 mb-4">A story for {childName} and {parentName}</h2>
+          <h2 className="text-lg text-center text-gray-500 mb-4">A story for {sessionStorage.getItem("childName")} and {sessionStorage.getItem("parentName")}</h2>
         </div>
         <div className="w-full text-lg leading-relaxed whitespace-pre-line bg-mint-100 rounded-xl p-6 shadow-inner">
           {story}
