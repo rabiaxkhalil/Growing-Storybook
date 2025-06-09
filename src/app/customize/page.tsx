@@ -154,7 +154,7 @@ export default function Customize() {
     if (e) e.preventDefault();
     
     // Store all customized stories
-    const customizedStories = selectedStories.map((storyId, index) => {
+    const customizedStories = selectedStories.map((storyId) => {
       const story = storyTemplates.find(s => s.id === Number(storyId));
       if (story) {
         const child = sessionStorage.getItem("childName") || "";
