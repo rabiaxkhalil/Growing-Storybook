@@ -130,6 +130,7 @@ export default function Customize() {
   }
 
   function handleNextStory() {
+    console.log("Current Story Index:", currentStoryIndex);
     if (currentStoryIndex < selectedStories.length - 1) {
       setCurrentStoryIndex(currentStoryIndex + 1);
     } else {
