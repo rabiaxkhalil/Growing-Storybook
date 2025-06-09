@@ -24,7 +24,7 @@ const allStories = Object.keys(storyIllustrations);
 export default function Storybook() {
   const [storyTitle, setStoryTitle] = useState("");
   const [storyText, setStoryText] = useState("");
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const [isSpeaking, setIsSpeaking] = useState(false);
   const [isRecording, setIsRecording] = useState(false);
   const [audioUrl, setAudioUrl] = useState<string | null>(null);
@@ -37,20 +37,19 @@ export default function Storybook() {
   const [selectionConfirmed, setSelectionConfirmed] = useState(false);
 
   useEffect(() => {
+    if (!selectionConfirmed) return; // Only run after selection is confirmed
     const title = sessionStorage.getItem("finalStoryTitle");
     const text = sessionStorage.getItem("finalStoryText");
     const avatar = sessionStorage.getItem("childAvatar");
-    
     if (!title || !text) {
       router.push("/onboarding");
       return;
     }
-    
     setStoryTitle(title);
     setStoryText(text);
     setChildAvatar(avatar);
     setIsLoading(false);
-  }, [router]);
+  }, [router, selectionConfirmed]);
 
   function handleAIVoice() {
     if (isSpeaking) {
