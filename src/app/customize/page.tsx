@@ -6,52 +6,97 @@ const storyTemplates = [
   {
     id: 1,
     title: "The Rocket Repair Team",
-    text: `{childName} tapped on the blinking light. &apos;Uh-oh, the rocket is broken!&apos;\nBut {parentName} smiled. &apos;We can fix it together, Engineer!&apos;\nWith tools in hand and imagination in gear, they tightened bolts, patched wires, and cheered as the engine roared to life.\n&apos;We did it!&apos; {childName} shouted, launching toward the stars.\n{parentName} whispered, &apos;There&apos;s nothing you can&apos;t solve when we work as a team.&apos;`
+    text: `{childName} tapped on the blinking light. 'Uh-oh, the rocket is broken!'
+But {parentName} smiled. 'We can fix it together, Engineer!'
+With tools in hand and imagination in gear, they tightened bolts, patched wires, and cheered as the engine roared to life.
+'We did it!' {childName} shouted, launching toward the stars.
+{parentName} whispered, 'There's nothing you can't solve when we work as a team.'`
   },
   {
     id: 2,
     title: "The Dinosaur Discovery",
-    text: `{childName} brushed away dirt from the backyard. &apos;Look!&apos; A giant bone!\n&apos;You&apos;ve discovered a new dinosaur!&apos; {parentName} gasped.\nThey built a museum in the garage, drew pictures, and named it the {childName}saurus.\nVisitors (aka stuffed animals) came from far and wide.\n&apos;When you stay curious,&apos; {parentName} said, &apos;the world becomes your playground.&apos;`
+    text: `{childName} brushed away dirt from the backyard. 'Look!' A giant bone!
+'You've discovered a new dinosaur!' {parentName} gasped.
+They built a museum in the garage, drew pictures, and named it the {childName}saurus.
+Visitors (aka stuffed animals) came from far and wide.
+'When you stay curious,' {parentName} said, 'the world becomes your playground.'`
   },
   {
     id: 3,
     title: "The Sky Painter",
-    text: `Every evening, {childName} and {parentName} watched the sky change colors.\nOne day, {childName} asked, &apos;Who paints the sunset?&apos;\n&apos;Maybe… you do,&apos; {parentName} smiled.\nThey mixed cloud whites, lemon yellows, and peachy oranges with their imagination brushes.\nThe whole sky lit up.\n&apos;When you dream big, you color the world,&apos; {parentName} whispered.`
+    text: `Every evening, {childName} and {parentName} watched the sky change colors.
+One day, {childName} asked, 'Who paints the sunset?'
+'Maybe… you do,' {parentName} smiled.
+They mixed cloud whites, lemon yellows, and peachy oranges with their imagination brushes.
+The whole sky lit up.
+'When you dream big, you color the world,' {parentName} whispered.`
   },
   {
     id: 4,
     title: "The Kindness Parade",
-    text: `{childName} wore a cape made of hearts.\n&apos;What&apos;s your superpower?&apos; {parentName} asked.\n&apos;Kindness!&apos;\nThey marched down the hall, giving high-fives, hugs, and happy notes to every toy.\nEven grumpy Mr. Bear smiled.\n&apos;Being kind makes the world feel lighter,&apos; said {parentName}.\n&apos;And you, my little hero, are a light.&apos;`
+    text: `{childName} wore a cape made of hearts.
+'What's your superpower?' {parentName} asked.
+'Kindness!'
+They marched down the hall, giving high-fives, hugs, and happy notes to every toy.
+Even grumpy Mr. Bear smiled.
+'Being kind makes the world feel lighter,' said {parentName}.
+'And you, my little hero, are a light.'`
   },
   {
     id: 5,
     title: "Captain of the Sea",
-    text: `The living room became an ocean, and {childName} was captain of the couch-boat.\n&apos;Storm ahead!&apos;\n{parentName} helped steer with a broomstick and a mop.\nTogether, they navigated sea dragons and waves of pillows.\n&apos;You&apos;re brave, even when you&apos;re scared,&apos; {parentName} said.\n&apos;That&apos;s what true captains do.&apos;`
+    text: `The living room became an ocean, and {childName} was captain of the couch-boat.
+'Storm ahead!'
+{parentName} helped steer with a broomstick and a mop.
+Together, they navigated sea dragons and waves of pillows.
+'You're brave, even when you're scared,' {parentName} said.
+'That's what true captains do.'`
   },
   {
     id: 6,
     title: "The Quiet Rescue",
-    text: `{childName} found a squirrel in the yard, shivering in the cold.\n{parentName} brought a towel and some berries.\nThey made a tiny bed in a shoebox and kept watch.\nThe squirrel wiggled its tail and nuzzled {childName} goodbye.\n&apos;You helped because your heart is big,&apos; {parentName} said.\n&apos;That&apos;s what makes you strong.&apos;`
+    text: `{childName} found a squirrel in the yard, shivering in the cold.
+{parentName} brought a towel and some berries.
+They made a tiny bed in a shoebox and kept watch.
+The squirrel wiggled its tail and nuzzled {childName} goodbye.
+'You helped because your heart is big,' {parentName} said.
+'That's what makes you strong.'`
   },
   {
     id: 7,
     title: "The Starlight Wish",
-    text: `It was a big, quiet night.\n{childName} and {parentName} sat outside, counting stars.\n&apos;I don&apos;t know what I want to be yet,&apos; {childName} said.\n&apos;That&apos;s okay,&apos; said {parentName}, &apos;just wish for wonder.&apos;\nThey closed their eyes and let the starlight land gently on their cheeks.\n&apos;You can be anything,&apos; {parentName} said. &apos;And I&apos;ll be right here.&apos;`
+    text: `It was a big, quiet night.
+{childName} and {parentName} sat outside, counting stars.
+'I don't know what I want to be yet,' {childName} said.
+'That's okay,' said {parentName}, 'just wish for wonder.'
+They closed their eyes and let the starlight land gently on their cheeks.
+'You can be anything,' {parentName} said. 'And I'll be right here.'`
   },
   {
     id: 8,
     title: "The Loud Idea",
-    text: `{childName} had a BIG idea — but her voice was small.\n&apos;I think you should share it,&apos; {parentName} encouraged.\n{childName} practiced in the mirror. Then whispered it. Then SHOUTED it.\nIt echoed down the hallway.\n&apos;Wow!&apos; said {parentName}, &apos;Big voices come from brave hearts.&apos;`
+    text: `{childName} had a BIG idea — but her voice was small.
+'I think you should share it,' {parentName} encouraged.
+{childName} practiced in the mirror. Then whispered it. Then SHOUTED it.
+It echoed down the hallway.
+'Wow!' said {parentName}, 'Big voices come from brave hearts.'`
   },
   {
     id: 9,
     title: "The Time Machine",
-    text: `{childName} built a time machine out of a cardboard box and glitter glue.\nThey traveled to ancient Egypt, the moon, and even tomorrow&apos;s breakfast.\n&apos;Time is funny,&apos; said {parentName}, joining with a crown of cereal.\n&apos;But every moment with you is the best one yet.&apos;`
+    text: `{childName} built a time machine out of a cardboard box and glitter glue.
+They traveled to ancient Egypt, the moon, and even tomorrow's breakfast.
+'Time is funny,' said {parentName}, joining with a crown of cereal.
+'But every moment with you is the best one yet.'`
   },
   {
     id: 10,
     title: "The Great Messy Masterpiece",
-    text: `{childName} wanted to paint the whole world — starting with the kitchen table.\nPaint spilled, brushes flew, and giggles echoed.\n{parentName} didn&apos;t mind the mess.\n&apos;Creativity is beautiful chaos,&apos; they said, lifting {childName} up for a hug.\n&apos;And you&apos;re the most colorful part of my life.&apos;`
+    text: `{childName} wanted to paint the whole world — starting with the kitchen table.
+Paint spilled, brushes flew, and giggles echoed.
+{parentName} didn't mind the mess.
+'Creativity is beautiful chaos,' they said, lifting {childName} up for a hug.
+'And you're the most colorful part of my life.'`
   },
 ];
 
