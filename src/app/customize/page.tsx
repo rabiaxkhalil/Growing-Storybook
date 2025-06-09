@@ -120,10 +120,10 @@ export default function Customize() {
     setSelectedStories(stories);
     
     if (stories.length > 0) {
-      console.log("Looking for story:", stories[currentStoryIndex]);
-      console.log("Available stories:", storyTemplates.map(s => s.title));
+      console.log("Looking for story ID:", stories[currentStoryIndex]);
+      console.log("Available stories:", storyTemplates.map(s => ({ id: s.id, title: s.title })));
       
-      const story = storyTemplates.find(s => s.title === stories[currentStoryIndex]);
+      const story = storyTemplates.find(s => s.id === Number(stories[currentStoryIndex]));
       console.log("Found story:", story);
       
       if (story && child && parent) {
