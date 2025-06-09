@@ -120,7 +120,9 @@ export default function Customize() {
       const story = storyTemplates.find(s => s.title === stories[currentStoryIndex]);
       if (story && child && parent) {
         setStoryTitle(story.title);
-        setStoryText(fillStoryPlaceholders(story.text, child, parent));
+        const filledText = fillStoryPlaceholders(story.text, child, parent);
+        setStoryText(filledText);
+        console.log("Story Text:", filledText);
       }
     }
   }, [currentStoryIndex]);
