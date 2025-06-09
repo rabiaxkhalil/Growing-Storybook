@@ -2,6 +2,21 @@
 import { useEffect, useState, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { jsPDF } from "jspdf";
+import Image from "next/image";
+
+// Pre-made illustrations for each story theme
+const storyIllustrations = {
+  "The Rocket Repair Team": "/illustrations/rocket.svg",
+  "The Dinosaur Discovery": "/illustrations/dinosaur.svg",
+  "The Sky Painter": "/illustrations/sky.svg",
+  "The Kindness Parade": "/illustrations/kindness.svg",
+  "Captain of the Sea": "/illustrations/sea.svg",
+  "The Quiet Rescue": "/illustrations/rescue.svg",
+  "The Starlight Wish": "/illustrations/stars.svg",
+  "The Loud Idea": "/illustrations/idea.svg",
+  "The Time Machine": "/illustrations/time.svg",
+  "The Great Messy Masterpiece": "/illustrations/art.svg",
+};
 
 export default function Storybook() {
   const [storyTitle, setStoryTitle] = useState("");
@@ -11,6 +26,7 @@ export default function Storybook() {
   const [isRecording, setIsRecording] = useState(false);
   const [audioUrl, setAudioUrl] = useState<string | null>(null);
   const [showDownloadOptions, setShowDownloadOptions] = useState(false);
+  const [childAvatar, setChildAvatar] = useState<string | null>(null);
   const router = useRouter();
   const mediaRecorderRef = useRef<MediaRecorder | null>(null);
   const audioChunksRef = useRef<Blob[]>([]);
@@ -18,6 +34,7 @@ export default function Storybook() {
   useEffect(() => {
     const title = sessionStorage.getItem("finalStoryTitle");
     const text = sessionStorage.getItem("finalStoryText");
+    const avatar = sessionStorage.getItem("childAvatar");
     
     if (!title || !text) {
       router.push("/onboarding");
@@ -26,6 +43,7 @@ export default function Storybook() {
     
     setStoryTitle(title);
     setStoryText(text);
+    setChildAvatar(avatar);
     setIsLoading(false);
   }, [router]);
 
@@ -144,14 +162,38 @@ export default function Storybook() {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-peach-100 via-mint-100 to-sky-100 font-nunito text-gray-800 p-6">
-      <div className="max-w-2xl w-full flex flex-col items-center gap-6 bg-white/80 rounded-3xl shadow-xl p-8">
-        <h1 className="text-3xl font-bold text-center mb-2">{storyTitle}</h1>
-        <div className="w-full prose prose-lg max-w-none">
-          {storyText.split("\n").map((paragraph, index) => (
-            <p key={index} className="mb-4 text-lg">
-              {paragraph}
-            </p>
-          ))}
+      <div className="max-w-4xl w-full flex flex-col items-center gap-6 bg-white/80 rounded-3xl shadow-xl p-8">
+        <div className="flex items-center gap-6 mb-4">
+          {childAvatar && (
+            <div className="w-24 h-24 relative rounded-full overflow-hidden border-4 border-peach-300">
+              <Image
+                src={childAvatar}
+                alt="Child Avatar"
+                fill
+                className="object-cover"
+              />
+            </div>
+          )}
+          <h1 className="text-3xl font-bold text-center">{storyTitle}</h1>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
+          <div className="relative aspect-square rounded-2xl overflow-hidden shadow-lg">
+            <Image
+              src={storyIllustrations[storyTitle as keyof typeof storyIllustrations] || "/illustrations/default.svg"}
+              alt="Story Illustration"
+              fill
+              className="object-cover"
+            />
+          </div>
+          
+          <div className="prose prose-lg max-w-none">
+            {storyText.split("\n").map((paragraph, index) => (
+              <p key={index} className="mb-4 text-lg">
+                {paragraph}
+              </p>
+            ))}
+          </div>
         </div>
         
         <div className="flex flex-wrap gap-4 justify-center mt-4">
