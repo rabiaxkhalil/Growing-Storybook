@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import React from "react";
 
 const storyTemplates = [
   {
@@ -55,9 +56,12 @@ const storyTemplates = [
   },
 ];
 
+const allStories = Object.keys(storyTemplates);
+
 export default function Stories() {
   const [childName, setChildName] = useState("");
   const [childAvatar, setChildAvatar] = useState("");
+  const [selectedStories, setSelectedStories] = useState<string[]>([]);
   const router = useRouter();
 
   useEffect(() => {
@@ -65,8 +69,18 @@ export default function Stories() {
     setChildAvatar(sessionStorage.getItem("childAvatar") || "");
   }, []);
 
-  function handleSelect(storyId: number) {
-    sessionStorage.setItem("selectedStoryId", String(storyId));
+  function handleStorySelect(story: string) {
+    if (selectedStories.includes(story)) {
+      setSelectedStories(selectedStories.filter((s) => s !== story));
+    } else {
+      if (selectedStories.length < 10) {
+        setSelectedStories([...selectedStories, story]);
+      }
+    }
+  }
+
+  function handleConfirmSelection() {
+    sessionStorage.setItem("selectedStories", JSON.stringify(selectedStories));
     router.push("/customize");
   }
 
@@ -75,20 +89,30 @@ export default function Stories() {
       <div className="max-w-2xl w-full flex flex-col items-center gap-6 bg-white/80 rounded-3xl shadow-xl p-8">
         <div className="flex items-center gap-4 mb-4">
           <span className="text-4xl">{childAvatar}</span>
-          <h2 className="text-2xl font-bold">Pick a story for {childName}</h2>
+          <h2 className="text-2xl font-bold">Select up to 10 Stories for {childName}</h2>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
-          {storyTemplates.map(story => (
-            <button
-              key={story.id}
-              onClick={() => handleSelect(story.id)}
-              className="rounded-2xl bg-mint-100 hover:bg-peach-100 border-2 border-peach-100 hover:border-peach-300 p-4 text-lg font-semibold shadow transition text-left flex flex-col gap-2"
-            >
-              <span>{story.title}</span>
-              <span className="text-xs text-gray-500">~100-150 words</span>
-            </button>
+          {allStories.map((story) => (
+            <label key={story} className={`flex items-center gap-3 p-3 rounded-xl border transition cursor-pointer ${selectedStories.includes(story) ? 'bg-peach-100 border-peach-300' : 'bg-white border-gray-200'}`}> 
+              <input
+                type="checkbox"
+                checked={selectedStories.includes(story)}
+                onChange={() => handleStorySelect(story)}
+                disabled={!selectedStories.includes(story) && selectedStories.length >= 10}
+                className="accent-peach-400 w-5 h-5"
+              />
+              <span className="font-semibold">{story}</span>
+            </label>
           ))}
         </div>
+        <button
+          onClick={handleConfirmSelection}
+          disabled={selectedStories.length === 0}
+          className="mt-6 px-6 py-2 rounded-full bg-peach-300 hover:bg-peach-400 text-white font-semibold shadow transition disabled:opacity-50"
+        >
+          Continue
+        </button>
+        <div className="text-sm text-gray-500 mt-2">{selectedStories.length}/10 selected</div>
       </div>
     </div>
   );
